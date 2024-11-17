@@ -1,4 +1,2 @@
-100
-A
-34.56
-My favorite number is 100
+100 a
+d 97
