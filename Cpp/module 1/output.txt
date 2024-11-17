@@ -1,3 +1,4 @@
 100
 A
 34.56
+My favorite number is 100
