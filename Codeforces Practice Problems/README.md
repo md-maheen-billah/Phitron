@@ -7,3 +7,5 @@ ii) C. Simple Calculator - https://codeforces.com/group/MWSDmqGsZm/contest/21915
 iii) F. Reversing - https://codeforces.com/group/MWSDmqGsZm/contest/219774/problem/F
 
 iv) E. Max - https://codeforces.com/group/MWSDmqGsZm/contest/219432/problem/E
+
+v) K. Max and Min - https://codeforces.com/group/MWSDmqGsZm/contest/219158/problem/K
