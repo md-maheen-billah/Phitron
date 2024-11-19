@@ -1,33 +1,27 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void fun(int A[], int n)
+void recur(int n, int mx)
 {
-  int min = INT_MAX;
-  int max = INT_MIN;
-  for (int i = 0; i < n; i++)
+  if (n <= 0)
   {
-    if (A[i] < min)
-    {
-      min = A[i];
-    }
-    if (A[i] > max)
-    {
-      max = A[i];
-    }
+    cout << mx;
+    return;
   }
-  cout << min << " " << max;
+  int x;
+  cin >> x;
+  if (x > mx)
+  {
+    mx = x;
+  }
+  recur(n - 1, mx);
 }
 
 int main()
 {
   int N;
   cin >> N;
-  int a[N];
-  for (int i = 0; i < N; i++)
-  {
-    cin >> a[i];
-  }
-  fun(a, N);
+  int mx = INT_MIN;
+  recur(N, mx);
   return 0;
 }
