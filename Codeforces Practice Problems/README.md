@@ -1,13 +1,15 @@
 ## Codeforces Problems Solutions
 
-i) M. Capital or Small or Digit - https://codeforces.com/group/MWSDmqGsZm/contest/219158/problem/M
+1. M. Capital or Small or Digit - https://codeforces.com/group/MWSDmqGsZm/contest/219158/problem/M
 
-ii) C. Simple Calculator - https://codeforces.com/group/MWSDmqGsZm/contest/219158/problem/C
+2. C. Simple Calculator - https://codeforces.com/group/MWSDmqGsZm/contest/219158/problem/C
 
-iii) F. Reversing - https://codeforces.com/group/MWSDmqGsZm/contest/219774/problem/F
+3. F. Reversing - https://codeforces.com/group/MWSDmqGsZm/contest/219774/problem/F
 
-iv) E. Max - https://codeforces.com/group/MWSDmqGsZm/contest/219432/problem/E
+4. E. Max - https://codeforces.com/group/MWSDmqGsZm/contest/219432/problem/E
 
-v) K. Max and Min - https://codeforces.com/group/MWSDmqGsZm/contest/219158/problem/K
+5. K. Max and Min - https://codeforces.com/group/MWSDmqGsZm/contest/219158/problem/K
 
-Vi) N. Shift Zeros - https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/N
+6. N. Shift Zeros - https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/N
+
+7. G. Max and MIN - https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/G
