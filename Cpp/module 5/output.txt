@@ -1,7 +1,2 @@
-Hello World I am Maheen
-Hello
-World
-I
-am
-Maheen
-5
+Gello Gello
+Same
