@@ -15,3 +15,5 @@
 7. G. Max and MIN - https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/G
 
 8. K. Max Number - https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/K
+
+9. Q. Reverse Words - https://codeforces.com/group/MWSDmqGsZm/contest/219856/problem/Q
