@@ -9,7 +9,11 @@ int main()
     {
         cin >> a[i];
     }
+    string s;
+    cin >> s;
+    reverse(s.begin(), s.end());
     reverse(a, a + n);
+    cout << s << endl;
     for (int i = 0; i < n; i++)
     {
         cout << a[i] << " ";
