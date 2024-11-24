@@ -3,40 +3,20 @@ using namespace std;
 
 int main()
 {
-    int T;
-    cin >> T;
-    for (int i = 0; i < T; i++)
-    {
-        int N, S;
-        cin >> N >> S;
-        int a[N];
-        int flag = 0;
-        for (int i = 0; i < N; i++)
-        {
-            cin >> a[i];
-        }
-        for (int i = 0; i < N; i++)
-        {
-            for (int j = i + 1; j < N; j++)
-            {
-                for (int k = j + 1; k < N; k++)
-                {
-                    if (a[i] + a[j] + a[k] == S)
-                    {
-                        flag = 1;
-                    }
-                }
-            }
-        }
-        if (flag == 1)
-        {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
-        }
+    string s = "Hello";
+    cout << s.size() << endl; // printing size of string
+    s.resize(3);
+    cout << s << endl; // printing a string after resizing smaller
+    s.resize(8);
+    cout << s << endl; // printing a string after resizing larger
+    s.resize(3);
+    s.resize(8, 'x');
+    cout << s << endl; // printing a string after resizing larger and filling null values with 'x'
+    s.clear();         // clears value inside the string ⬇️
+    cout << s << endl; // prints nothing
+    if (s.empty() == true)
+    { // checking if a string is empty. returns tur or false
+        cout << "Empty" << endl;
     }
-
     return 0;
 }
