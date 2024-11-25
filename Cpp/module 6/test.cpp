@@ -1,31 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Student
+class Cricketer
 {
 public:
-    string name;
-    int english;
-    int math;
-    Student(string name, int english, int math)
+    string country;
+    int jersey;
+    Cricketer(string country, int jersey)
     {
-        this->name = name;
-        this->english = english;
-        this->math = math;
+        this->country = country;
+        this->jersey = jersey;
     }
-    void hello()
-    {
-        cout << "Total marks of " << name << " is " << english + math << endl;
-    }
+    // void hello()
+    // {
+    //     cout << "Total marks of " << name << " is " << english + math << endl;
+    // }
 };
 
 int main()
 {
-    Student sakib("Sakib Ahmed", 10, 10);
-    Student rakib("Rakib Khan", 10, 8);
-
-    sakib.hello();
-    rakib.hello();
+    Cricketer *dhoni = new Cricketer("India", 15);
+    Cricketer *kohli = new Cricketer("India", 18);
+    *kohli = *dhoni;
+    delete dhoni;
+    cout << kohli->country << " " << kohli->jersey << endl;
 
     return 0;
 }
