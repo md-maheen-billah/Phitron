@@ -17,3 +17,7 @@
 8. K. Max Number - https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/K
 
 9. Q. Reverse Words - https://codeforces.com/group/MWSDmqGsZm/contest/219856/problem/Q
+
+10. I. Palindrome - https://codeforces.com/group/MWSDmqGsZm/contest/219856/problem/I
+
+11. U. New Words - https://codeforces.com/group/MWSDmqGsZm/contest/219856/problem/U
