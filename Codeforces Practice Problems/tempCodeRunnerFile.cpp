@@ -1,2 +1,1 @@
-
-  for (auto i = s.begin(), j = s.end() - 1; i < j; ++i, --j)
+A[i + 1] = B[i] - A[i];

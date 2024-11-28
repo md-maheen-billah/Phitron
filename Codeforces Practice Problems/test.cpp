@@ -3,39 +3,42 @@ using namespace std;
 
 int main()
 {
-  string s;
-  cin >> s;
-  int eCount = 0;
-  int gCount = 0;
-  int yCount = 0;
-  int pCount = 0;
-  int tCount = 0;
+  int T;
+  cin >> T;
 
-  for (char c : s)
+  while (T--)
   {
-    if ((c == 'e' || c == 'E'))
+    int N;
+    cin >> N;             // Size of array A
+    vector<int> B(N - 1); // The shuffled array B
+    for (int i = 0; i < N - 1; ++i)
     {
-      eCount++;
+      cin >> B[i];
     }
-    else if ((c == 'g' || c == 'G'))
-    {
-      gCount++;
-    }
-    else if ((c == 'y' || c == 'Y'))
-    {
-      yCount++;
-    }
-    else if ((c == 'p' || c == 'P'))
-    {
-      pCount++;
-    }
-    else if ((c == 't' || c == 'T'))
-    {
-      tCount++;
-    }
-  }
 
-  cout << min({eCount, gCount, yCount, pCount, tCount});
+    // Array to store the result
+    vector<int> A(N);
+
+    // Sort B to bring consecutive pairs together
+    sort(B.begin(), B.end());
+
+    // Calculate A[0] and A[1]
+    A[0] = 1; // Start with the smallest possible positive number
+    A[1] = B[0] - A[0];
+
+    // Compute the rest of the array
+    for (int i = 2; i < N; ++i)
+    {
+      A[i] = B[i - 1] - A[i - 1];
+    }
+
+    // Output the result
+    for (int i = 0; i < N; ++i)
+    {
+      cout << A[i] << " ";
+    }
+    cout << endl;
+  }
 
   return 0;
 }
