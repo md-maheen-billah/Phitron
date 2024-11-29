@@ -9,7 +9,7 @@ int main()
   while (T--)
   {
     int N;
-    cin >> N;             // Size of array A
+    cin >> N;
     vector<int> B(N - 1); // The shuffled array B
     for (int i = 0; i < N - 1; ++i)
     {
