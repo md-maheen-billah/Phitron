@@ -1,4 +1,4 @@
-rakib 18 65
+sakib 1 88
+nokib 2 88
 akib 28 75
-nokib 28 88
-sakib 15 88
+rakib 18 65
