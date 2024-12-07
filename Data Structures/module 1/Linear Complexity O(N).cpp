@@ -10,7 +10,7 @@ int main()
         cout << i << " ";
     }
     cout << endl;                   // here complexity O(1)
-    for (int i = 0; i <= n; i += 2) // here complexity O(n)
+    for (int i = 0; i <= n; i += 2) // if an increment or decrement is through addition or subtraction the complexity is O(n).
     {
         cout << i << " ";
     }
