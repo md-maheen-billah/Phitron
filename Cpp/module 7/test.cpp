@@ -1,72 +1,34 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 class Student
 {
 public:
-    string name;
-    int roll;
-    int marks;
+    string nm;
+    int cls;
+    string s;
+    int id;
+    int math_marks;
+    int english_marks;
 };
 
-// longer steps
-// bool cmp(Student l, Student r)
-// {
-//     if (l.marks > r.marks)
-//     {
-//         return true;
-//     }
-//     else if (l.marks < r.marks)
-//     {
-//         return false;
-//     }
-//     else
-//     {
-//         if (l.roll < r.roll)
-//         {
-//             return true;
-//         }
-//         else
-//         {
-//             return false;
-//         }
-//     }
-// };
-
-// shorter steps
-// bool cmp(Student l, Student r)
-// {
-//     if (l.marks == r.marks)
-//     {
-//         return l.roll < r.roll;
-//     }
-//     else
-//     {
-//         return l.marks > r.marks;
-//     }
-// };
-
-// even shorter
 bool cmp(Student l, Student r)
 {
-    return l.marks == r.marks ? l.roll < r.roll : l.marks > r.marks;
+    return l.english_marks == r.english_marks ? l.math_marks == r.math_marks ? l.id < r.id : l.math_marks > r.math_marks : l.english_marks > r.english_marks;
 };
 
 int main()
 {
-    int n;
-    cin >> n;
-    Student a[n];
-    for (int i = 0; i < n; i++)
+    int N;
+    cin >> N;
+    Student a[N];
+    for (int i = 0; i < N; i++)
     {
-        cin >> a[i].name >> a[i].roll >> a[i].marks;
+        cin >> a[i].nm >> a[i].cls >> a[i].s >> a[i].id >> a[i].math_marks >> a[i].english_marks;
     }
-    Student mn;
-    sort(a, a + n, cmp);
-    for (int i = 0; i < n; i++)
+    sort(a, a + N, cmp);
+    for (int i = 0; i < N; i++)
     {
-        cout << a[i].name << " " << a[i].roll << " " << a[i].marks << endl;
+        cout << a[i].nm << " " << a[i].cls << " " << a[i].s << " " << a[i].id << " " << a[i].math_marks << " " << a[i].english_marks << endl;
     }
-
     return 0;
 }
