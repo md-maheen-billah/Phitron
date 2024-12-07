@@ -2,17 +2,20 @@
 using namespace std;
 int main()
 {
-    int n;
-    cin >> n;
-    int sum = 0;
-    //using loop
-    for (int i = 0; i <= n; i++)
+    int n;    // here complexity O(1)
+    cin >> n; // here complexity O(1)
+    // using loop
+    for (int i = 0; i <= n; i++) // here complexity O(n)
     {
-        sum += i;
+        cout << i << " ";
     }
-    cout << sum << endl;
-    //using formula
-    int sum2 = (n*(n+1))/2;
-    cout << sum2 << endl;
-    return 0;
+    cout << endl;                   // here complexity O(1)
+    for (int i = 0; i <= n; i += 2) // here complexity O(n)
+    {
+        cout << i << " ";
+    }
+
+    return 0; // here complexity O(1)
 }
+
+// therefore we can say O(n+n+1+1+1+1) but instead we take the highest and choose O(n) as the linear complexity
