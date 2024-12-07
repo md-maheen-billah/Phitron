@@ -6,24 +6,25 @@ int main()
     cin >> n;
 
     // using loop
-    for (int i = 1; i <= n; i *= 2) // if an increment or decrement is through multiplication or division the complexity is O(logN). for example here, i is incremented by multiplying by 2. Therefore the base is 2 here. Therefore O(log₂N)
+    for (int i = 1; i <= sqrt(n); i++) // here the input is square rooted. Therefore the complexity here is O(sqrt(N))
     {
-        cout << i << " ";
+        if (n % i == 0)
+        {
+            cout << i << " " << n / i << " ";
+        }
     }
     cout << endl;
-    for (int i = n; i >= 1; i /= 3) // i is decremented by dividing by 3. Therefore the base is 3 here. Therefore O(log₃N)
+
+    for (int i = 1; i * i <= n; i++) // it can also be written like this to squareroot n
     {
-        cout << i << " ";
+        if (n % i == 0)
+        {
+            cout << i << " " << n / i << " ";
+        }
     }
     cout << endl;
-    int k = 2;
-    for (int i = 1; i < n; i++) // i is incremented by 1. But inside the loop we are multiplying i with k which has a value of 2(thus incrementing indirectly). Therefore the base is k which is 2 here. Therefore O(logₖN) or O(log₂N)
-    {
-        cout << i << " ";
-        i = i * k;
-    }
 
     return 0;
 }
 
-// O(logN) is order of logN
+// here we tried to obtain the all the divisors of a number
