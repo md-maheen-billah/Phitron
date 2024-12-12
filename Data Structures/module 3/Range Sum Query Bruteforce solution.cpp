@@ -9,18 +9,17 @@ int main()
     {
         cin >> v[i];
     }
-    for (int i = 0; i < q; i++)
-        while (q--)
+    while (q--)
+    {
+        int l, r;
+        cin >> l >> r;
+        int sum = 0;
+        for (int i = l; i <= r; i++)
         {
-            int l, r;
-            cin >> l >> r;
-            int sum = 0;
-            for (int i = l; i <= r; i++)
-            {
-                sum += v[i];
-            }
-            cout << sum << endl;
+            sum += v[i];
         }
+        cout << sum << endl;
+    }
 
     return 0;
 }
