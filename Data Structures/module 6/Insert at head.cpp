@@ -13,7 +13,7 @@ public:
     }
 };
 
-void insert_at_head(Node *&head, int val) //used reference using &, otherwise no changes will take place
+void insert_at_head(Node *&head, int val) // used reference using &, otherwise no changes will take place
 {
     Node *newnode = new Node(val);
     newnode->next = head;
@@ -42,7 +42,15 @@ int main()
 
     insert_at_head(head, 100);
     insert_at_head(head, 200);
+    insert_at_head(head, 300);
     print_linked_list(head);
+    // output
+    // 300
+    // 200
+    // 100
+    // 10
+    // 20
+    // 30
 
     return 0;
 }
