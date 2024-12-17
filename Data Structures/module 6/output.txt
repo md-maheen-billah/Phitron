@@ -1,0 +1,2 @@
+In main: 10
+In main: 0
