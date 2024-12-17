@@ -48,12 +48,12 @@ int main()
     while (true) // complexity O(N)
     {
         cin >> val;
-        if(val== -1)
+        if (val == -1)
         {
             break;
         }
-        insert_at_tail(head,tail,val); // complexity O(1)
-    } 
+        insert_at_tail(head, tail, val); // complexity O(1)
+    }
 
     print_linked_list(head);
     return 0;
