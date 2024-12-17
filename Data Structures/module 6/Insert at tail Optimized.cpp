@@ -20,6 +20,7 @@ void insert_at_tail(Node *&head, Node *&tail, int val) // optimized to complexit
     if (head == NULL)
     {
         head = newnode;
+        tail = newnode;
         return;
     }
 
