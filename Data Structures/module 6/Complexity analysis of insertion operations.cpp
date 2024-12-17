@@ -13,22 +13,45 @@ public:
     }
 };
 
-void insert_at_tail(Node *&head, int val) // used reference using &, otherwise no changes will take place
+void insert_at_head(Node *&head, int val) // O(1) complexity
+{
+    Node *newnode = new Node(val);
+    newnode->next = head;
+    head = newnode;
+}
+
+void insert_at_tail(Node *&head, int val) // O(N) complexity
 {
     Node *newnode = new Node(val);
 
-    if (head == NULL) // incase if we do not have a head or head is null
+    if (head == NULL)
     {
         head = newnode;
-        return;
     }
 
+    else
+    {
+        Node *tmp = head;
+
+        while (tmp->next != NULL)
+        {
+            tmp = tmp->next;
+        }
+
+        tmp->next = newnode;
+    }
+}
+
+void insert_at_any_position(Node *head, int idx, int val) // O(N) complexity
+{
+    Node *newnode = new Node(val);
     Node *tmp = head;
-    while (tmp->next != NULL)
+    for (int i = 0; i < idx - 1; i++)
     {
         tmp = tmp->next;
     }
-    // after iteration at this point tmp is at last node
+
+    newnode->next = tmp->next;
     tmp->next = newnode;
 }
 
@@ -52,15 +75,8 @@ int main()
     head->next = a;
     a->next = b;
 
-    insert_at_tail(head, 100);
-    insert_at_tail(head, 200);
+    insert_at_any_position(head, 2, 100);
     print_linked_list(head);
-    // output
-    // 10
-    // 20
-    // 30
-    // 100
-    // 200
 
     return 0;
 }

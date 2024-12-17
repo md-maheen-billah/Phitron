@@ -13,18 +13,23 @@ public:
     }
 };
 
-void insert_at_any_position(Node *head, int idx, int val) // reference using & is not required as we will not be changing head
+void insert_at_tail(Node *&head, int val) // used reference using &, otherwise no changes will take place
 {
     Node *newnode = new Node(val);
+
+    if (head == NULL) // incase if we do not have a head or head is null
+    {
+        head = newnode;
+        return;
+    }
+
     Node *tmp = head;
-    for (int i = 0; i < idx-1; i++)
+    while (tmp->next != NULL)
     {
         tmp = tmp->next;
     }
-
-     // now tmp is at idx-1, which is node a
-     newnode->next = tmp->next; // here we are first connecting node b after the newnode, here tmp has iterated to a, and a->next is b
-     tmp->next = newnode; // now we are connecting newnode after node a which is in tmp
+    // after iteration at this point tmp is at last node
+    tmp->next = newnode;
 }
 
 void print_linked_list(Node *head)
@@ -36,7 +41,6 @@ void print_linked_list(Node *head)
         cout << tmp->val << endl;
         tmp = tmp->next;
     }
-
 }
 
 int main()
@@ -48,13 +52,15 @@ int main()
     head->next = a;
     a->next = b;
 
-    insert_at_any_position(head, 2, 100); // here we are trying to insert in idx 2 which is currently occupied by node b
+    insert_at_tail(head, 100);
+    insert_at_tail(head, 200);
     print_linked_list(head);
     // output
     // 10
     // 20
-    // 100
     // 30
+    // 100
+    // 200
 
     return 0;
 }
