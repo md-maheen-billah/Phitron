@@ -28,16 +28,22 @@ void insert_at_tail(Node *&head, Node *&tail, int val) // optimized to complexit
     tail = newnode;
 }
 
-void print_linked_list_reverse(Node *tmp) // we used recursion to print reverse
+void print_linked_list(Node *head)
 {
-    // base case
-    if(tmp == NULL)
-    {
-        return;
-    }
+    Node *tmp = head;
 
-    print_linked_list_reverse(tmp->next);
-    cout << tmp->val << endl;
+    while (tmp != NULL)
+    {
+        cout << tmp->val << endl;
+        tmp = tmp->next;
+    }
+}
+
+void delete_at_head(Node *&head)
+{
+    Node *deleteNode = head;
+    head = head->next;
+    delete deleteNode;
 }
 
 int main()
@@ -49,13 +55,13 @@ int main()
     while (true) // complexity O(N)
     {
         cin >> val;
-        if(val== -1)
+        if (val == -1)
         {
             break;
         }
-        insert_at_tail(head,tail,val); // complexity O(1)
-    } 
-
-    print_linked_list_reverse(head); // complexity O(N)
+        insert_at_tail(head, tail, val); // complexity O(1)
+    }
+    delete_at_head(head);
+    print_linked_list(head);
     return 0;
 }
