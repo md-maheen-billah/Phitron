@@ -39,16 +39,10 @@ void print_linked_list(Node *head)
     }
 }
 
-void delete_at_any_position(Node *head, int idx)
+void delete_at_head(Node *&head)
 {
-    Node *tmp = head;
-    for (int i = 0; i < idx-1; i++)
-    {
-        tmp = tmp->next;
-    }
-
-    Node *deleteNode = tmp->next;
-    tmp->next = deleteNode->next;
+    Node *deleteNode = head;
+    head = head->next;
     delete deleteNode;
 }
 
@@ -67,8 +61,8 @@ int main()
         }
         insert_at_tail(head, tail, val); // complexity O(1)
     }
-
-    delete_at_any_position(head, 2);
+                  
+    delete_at_head(head);
     print_linked_list(head);
     return 0;
 }
