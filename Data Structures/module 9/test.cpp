@@ -15,6 +15,20 @@ public:
     }
 };
 
+void insert_at_tail(Node *&head, Node *&tail, int val)
+{
+    Node *newnode = new Node(val);
+    if (head == NULL)
+    {
+        head = newnode;
+        tail = newnode;
+        return;
+    }
+    tail->next = newnode;
+    newnode->prev = tail;
+    tail = newnode;
+}
+
 void print_forward(Node *head)
 {
     Node *tmp = head;
@@ -26,33 +40,25 @@ void print_forward(Node *head)
     cout << endl;
 }
 
-void delete_at_any_position(Node *&head, int idx)
-{
-    Node *tmp = head;
-    for (int i = 0; i < idx-1; i++)
-    {
-        tmp = tmp->next;
-    }
-    Node *deletenode = tmp->next;
-    tmp->next = deletenode->next;
-    tmp->next->prev = tmp;
-    delete deletenode;
-}
 
 int main()
 {
-    Node *head = new Node(10);
-    Node *a = new Node(20);
-    Node *tail = new Node(30);
+    Node *head = NULL;
+    Node *tail = NULL;
 
-    head->next = a;
-    a->prev = head;
-    a->next = tail;
-    tail->prev = a;
+    int val;
+    while (true)
+    {
+        cin >> val;
+        if(val == -1)
+        {
+            break;
+        }
+        insert_at_tail(head,tail,val);
+    }
+    
 
-    print_forward(head);
 
-    delete_at_any_position(head,1);
 
     print_forward(head);
 
