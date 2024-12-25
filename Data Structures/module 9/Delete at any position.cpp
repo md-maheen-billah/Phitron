@@ -29,7 +29,7 @@ void print_forward(Node *head)
 void delete_at_any_position(Node *&head, int idx)
 {
     Node *tmp = head;
-    for (int i = 0; i < idx-1; i++)
+    for (int i = 0; i < idx - 1; i++)
     {
         tmp = tmp->next;
     }
@@ -52,7 +52,7 @@ int main()
 
     print_forward(head);
 
-    delete_at_any_position(head,1);
+    delete_at_any_position(head, 1);
 
     print_forward(head);
 
