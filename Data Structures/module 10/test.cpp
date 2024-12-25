@@ -2,38 +2,41 @@
 using namespace std;
 int main()
 {
-    list<int> l = {1,2,3,4,5,6,7,8,9,0,1,2,3,4}; 
-    l.erase(next(l.begin(),9)); //deleting a specific position
-    for(int val:l)
+    list<int> l = {3, 20, 1, 6, 20, 4, 7, 20, 9,1 ,7};
+    l.remove(20); // remove a specific value from the entire list
+    for (int val : l)
     {
         cout << val << " ";
     }
-    cout << endl ;
+    cout << endl;
 
-
-    l.erase(next(l.begin(),9), next(l.begin(),13)); //deleting a number of specific positions in a row
-    for(int val:l)
+    l.sort(); // sorting in ascending order
+    for (int val : l)
     {
         cout << val << " ";
     }
-    cout << endl ;
+    cout << endl;
 
-
-    list<int> l2 = {1,20,3,4,20,6,7,20,9}; 
-    replace(l2.begin(),l2.end(),20,100); //replace a value with another value
-    for(int val:l2)
+    l.sort(greater<int>()); // sorting in descending order
+    for (int val : l)
     {
         cout << val << " ";
     }
-    cout << endl ;
+    cout << endl;
 
-
-    auto it = find(l2.begin(),l2.end(),100); //find a value
-    if(it == l2.end())
+    l.unique(); // only use this after a list is sorted, otherwise it wont work
+    for (int val : l)
     {
-        cout << "Not Found" << endl;
+        cout << val << " ";
     }
-    else cout << "Found" << endl;
+    cout << endl;
+
+    l.reverse(); //reverses a list
+    for (int val : l)
+    {
+        cout << val << " ";
+    }
+    cout << endl;
 
     return 0;
 }
