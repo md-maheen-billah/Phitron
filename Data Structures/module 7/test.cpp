@@ -13,17 +13,15 @@ public:
     }
 };
 
-void insert_at_tail(Node *&head, Node *&tail, int val) // optimized to complexity O(1)
+void insert_at_tail(Node *&head, Node *&tail, int val)
 {
     Node *newnode = new Node(val);
-
     if (head == NULL)
     {
         head = newnode;
         tail = newnode;
         return;
     }
-
     tail->next = newnode;
     tail = newnode;
 }
@@ -31,26 +29,34 @@ void insert_at_tail(Node *&head, Node *&tail, int val) // optimized to complexit
 void print_linked_list(Node *head)
 {
     Node *tmp = head;
-
     while (tmp != NULL)
     {
-        cout << tmp->val << endl;
+        cout << tmp->val << " ";
         tmp = tmp->next;
     }
 }
 
-void delete_at_tail(Node *head, Node *&tail, int idx)
+void delete_repeat(Node *head)
 {
-    Node *tmp = head;
-    for (int i = 0; i < idx - 1; i++)
+    for (Node *i = head; i != NULL; i = i->next)
     {
-        tmp = tmp->next;
+        Node *tmp = i;
+        for (Node *j = i->next; j != NULL;)
+        {
+            if (i->val == j->val)
+            {
+                Node *deleteNode = j;
+                tmp->next = j->next; 
+                j = j->next;          
+                delete deleteNode;    
+            }
+            else
+            {
+                tmp = j;   
+                j = j->next; 
+            }
+        }
     }
-
-    Node *deleteNode = tmp->next;
-    tmp->next = deleteNode->next;
-    delete deleteNode;
-    tail = tmp;
 }
 
 int main()
@@ -59,16 +65,16 @@ int main()
     Node *tail = NULL;
 
     int val;
-    while (true) // complexity O(N)
+    while (true)
     {
         cin >> val;
         if (val == -1)
         {
             break;
         }
-        insert_at_tail(head, tail, val); // complexity O(1)
+        insert_at_tail(head, tail, val);
     }
-    delete_at_tail(head, tail, 3);
+    delete_repeat(head);
     print_linked_list(head);
     return 0;
 }
