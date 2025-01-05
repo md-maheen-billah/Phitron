@@ -1,65 +1,39 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-class Node
-{
-public:
-    int val;
-    Node *next;
-    Node(int val)
-    {
-        this->val = val;
-        this->next = NULL;
-    }
-};
-
-void print_linked_list(Node *head)
-{
-    Node *tmp = head;
-
-    while (tmp != NULL)
-    {
-        cout << tmp->val << " ";
-        tmp = tmp->next;
-    }
-    cout << endl;
-}
-
 int main()
 {
-    Node *head = new Node(10);
-    Node *a = new Node(20);
-    Node *b = new Node(20);
-    Node *c = new Node(20);
-    Node *d = new Node(20);
-
-    head->next = a;
-    a->next = b;
-    b->next = c;
-    c->next = d;
-    d->next = a;
-
-    Node *slow = head;
-    Node *fast = head;
-    bool flag = false;
-
-    while (fast != NULL && fast->next != NULL)
+    list<int> l = {1,2,3,4,5,6,7,8,9,0,1,2,3,4}; 
+    l.erase(next(l.begin(),9)); //deleting a specific position
+    for(int val:l)
     {
-        slow = slow->next;
-        fast = fast->next->next;
-        if (slow == fast)
-        {
-            // cycle detected
-            flag = true;
-            break;
-        }
+        cout << val << " ";
     }
+    cout << endl ;
 
-    if (flag)
+
+    l.erase(next(l.begin(),9), next(l.begin(),13)); //deleting a number of specific positions in a row
+    for(int val:l)
     {
-        cout << "Cycle Detected";
+        cout << val << " ";
     }
-    else
-        cout << "Cycle Not Detected";
+    cout << endl ;
+
+
+    list<int> l2 = {1,20,3,4,20,6,7,20,9}; 
+    replace(l2.begin(),l2.end(),20,100); //replace a value with another value
+    for(int val:l2)
+    {
+        cout << val << " ";
+    }
+    cout << endl ;
+
+
+    auto it = find(l2.begin(),l2.end(),100); //find a value
+    if(it == l2.end())
+    {
+        cout << "Not Found" << endl;
+    }
+    else cout << "Found" << endl;
+
     return 0;
 }
