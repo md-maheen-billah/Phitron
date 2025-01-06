@@ -69,20 +69,22 @@ public:
 
 int main()
 {
-    stack<int> st;
+    myQueue q;
     int n;
     cin >> n;
     for (int i = 0; i < n; i++)
     {
         int x;
         cin >> x;
-        st.push(x);
+        q.push(x);
     }
 
-    while (!st.empty())
+    cout << q.front() << " " << q.back() << " " << q.size() << endl;
+
+    while (!q.empty())
     {
-        cout << st.top() << endl;
-        st.pop();
+        cout << q.front() << endl;
+        q.pop();
     }
 
     return 0;
