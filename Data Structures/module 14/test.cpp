@@ -1,25 +1,35 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 int main()
 {
-    queue<int> q;
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++)
+    int t;
+    cin >> t;
+    while (t--)
     {
-        int x;
-        cin >> x;
-        q.push(x);
-    }
-
-    cout << q.front() << " " << q.back() << " " << q.size() << endl;
-
-    while (!q.empty())
-    {
-        cout << q.front() << endl;
-        q.pop();
+        stack<char> st;
+        string s;
+        cin >> s;
+        bool valid = true;
+        for (char c : s)
+        {
+            if (c == '1')
+            {
+                if (!st.empty())
+                    st.pop();
+                else
+                {
+                    valid = false;
+                    break;
+                }
+            }
+            else
+                st.push(c);
+        }
+        if (st.empty() && valid)
+            cout << "YES" << endl;
+        else
+            cout << "NO" << endl;
     }
 
     return 0;
