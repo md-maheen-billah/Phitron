@@ -18,7 +18,7 @@ int max_height(Node *root)
 {
     if (root == NULL)
         return 0;
-    if (root->left == NULL & root->right == NULL)
+    if (root->left == NULL && root->right == NULL)
         return 0;
     int l = max_height(root->left);
     int r = max_height(root->right);
