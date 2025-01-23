@@ -15,46 +15,6 @@ public:
     }
 };
 
-int max_height(Node *root)
-{
-    if (root == NULL)
-        return 0;
-    if (root->left == NULL && root->right == NULL)
-        return 0;
-    int l = max_height(root->left);
-    int r = max_height(root->right);
-    return max(l, r) + 1;
-};
-
-void outerNodeLeft(Node *root)
-{
-    if (root == NULL)
-        return;
-    if (root->left)
-    {
-        outerNodeLeft(root->left);
-    }
-    else if (root->right)
-    {
-        outerNodeLeft(root->right);
-    }
-    cout << root->val << " ";
-};
-void outerNodeRight(Node *root)
-{
-    if (root == NULL)
-        return;
-    cout << root->val << " ";
-    if (root->right)
-    {
-        outerNodeRight(root->right);
-    }
-    else if (root->left)
-    {
-        outerNodeRight(root->left);
-    }
-};
-
 Node *input_tree()
 {
     int val;
@@ -95,12 +55,27 @@ Node *input_tree()
     }
     return root;
 };
+
+bool search(Node *root, int val)
+{
+    if (root == NULL)
+        return false;
+    if (root->val == val)
+        return true;
+    if (root->val > val)
+        return search(root->left, val);
+    else
+        return search(root->right, val);
+}
+
 int main()
 {
     Node *root = input_tree();
-    outerNodeLeft(root->left);
-    cout << root->val << " ";
-    outerNodeRight(root->right);
-
+    int val;
+    cin >> val;
+    if (search(root, val))
+        cout << "Found";
+    else
+        cout << "Not Found";
     return 0;
 }
