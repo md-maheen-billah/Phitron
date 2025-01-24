@@ -1,4 +1,8 @@
-ramim 5
-shamim 50
-tamim 2
-key is Absent
+He 1
+I 1
+cricket 1
+football 3
+love 3
+loves 1
+they 1
+we 1
