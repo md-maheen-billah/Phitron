@@ -1,8 +1,8 @@
-He 1
-I 1
-cricket 1
-football 3
-love 3
-loves 1
-they 1
-we 1
+1
+2
+3
+4
+5
+6
+8
+Is Not Present
