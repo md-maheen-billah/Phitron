@@ -9,16 +9,13 @@ int main()
     {
         int val;
         cin >> val;
-        s.insert(val); //logN as it maintains a balanced BST
+        s.insert(val); 
     }
     for (auto it = s.begin(); it != s.end(); it++)
     {
-        cout << *it << endl;
+        cout << *it << " ";
     }
+    cout << endl;
 
-    if (s.count(4)) //logN
-        cout << "Is Present";
-    else
-        cout << "Is Not Present";
     return 0;
 }
