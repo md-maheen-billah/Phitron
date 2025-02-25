@@ -16,6 +16,22 @@ public:
 
 vector<Edge> edge_list;
 
+void bellman_ford(int n)
+{
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (auto ed : edge_list)
+        {
+            int a, b, c;
+            a = ed.a;
+            b = ed.b;
+            c = ed.c;
+            if (dis[a] != INT_MAX && dis[a] + c < dis[b])
+                dis[b] = dis[a] + c;
+        }
+    }
+}
+
 int main()
 {
     int n, e;
@@ -33,19 +49,7 @@ int main()
     }
     dis[0] = 0; // setting value of souce to zero
 
-    for (int i = 0; i < n - 1; i++)
-    {
-        for (auto ed : edge_list)
-        {
-            int a, b, c;
-            a = ed.a;
-            b = ed.b;
-            c = ed.c;
-            if (dis[a] != INT_MAX && dis[a] + c < dis[b])
-                dis[b] = dis[a] + c;
-        }
-    }
-
+    bellman_ford(n);
     for (int i = 0; i < n; i++)
     {
         cout << i << " -> " << dis[i] << endl;
