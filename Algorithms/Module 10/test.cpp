@@ -39,16 +39,31 @@ int main()
         }
     }
 
+    bool cycle = false;
     for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < n; j++)
+        if (adj_mat[i][i] < 0)
         {
-            if (adj_mat[i][j] == INT_MAX)
-                cout << "INF" << " ";
-            else
-                cout << adj_mat[i][j] << " ";
+            cycle = true;
+            break;
         }
-        cout << endl;
+    }
+
+    if (cycle)
+        cout << "Negative Weighted Cycle Detected" << endl;
+    else
+    {
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                if (adj_mat[i][j] == INT_MAX)
+                    cout << "INF" << " ";
+                else
+                    cout << adj_mat[i][j] << " ";
+            }
+            cout << endl;
+        }
     }
 
     return 0;
