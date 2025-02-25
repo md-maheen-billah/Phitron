@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 int dis[1005];
-
+int n, e;
 class Edge
 {
 public:
@@ -16,7 +16,7 @@ public:
 
 vector<Edge> edge_list;
 
-void bellman_ford(int n)
+void bellman_ford()
 {
     for (int i = 0; i < n - 1; i++)
     {
@@ -34,7 +34,6 @@ void bellman_ford(int n)
 
 int main()
 {
-    int n, e;
     cin >> n >> e;
     while (e--)
     {
@@ -49,7 +48,7 @@ int main()
     }
     dis[0] = 0; // setting value of souce to zero
 
-    bellman_ford(n);
+    bellman_ford();
     for (int i = 0; i < n; i++)
     {
         cout << i << " -> " << dis[i] << endl;
