@@ -31,7 +31,7 @@ void bellman_ford()
         }
     }
     bool cycle = false;
-    for (auto ed : edge_list)
+    for (auto ed : edge_list) // running once again to check for cycle
     {
         int a, b, c;
         a = ed.a;
