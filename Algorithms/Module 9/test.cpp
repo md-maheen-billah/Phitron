@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 int dis[1005];
-
+int n, e;
 class Edge
 {
 public:
@@ -16,7 +16,7 @@ public:
 
 vector<Edge> edge_list;
 
-void bellman_ford(int n)
+void bellman_ford()
 {
     for (int i = 0; i < n - 1; i++)
     {
@@ -30,17 +30,40 @@ void bellman_ford(int n)
                 dis[b] = dis[a] + c;
         }
     }
+    bool cycle = false;
+    for (auto ed : edge_list)
+    {
+        int a, b, c;
+        a = ed.a;
+        b = ed.b;
+        c = ed.c;
+        if (dis[a] != INT_MAX && dis[a] + c < dis[b])
+        {
+            cycle = true;
+            break;
+        }
+    }
+    if (cycle)
+        cout << "Negative Weighted Cycle Detected" << endl;
+
+    else
+    {
+        for (int i = 0; i < n; i++)
+        {
+            cout << i << " -> " << dis[i] << endl;
+        }
+    }
 }
 
 int main()
 {
-    int n, e;
     cin >> n >> e;
     while (e--)
     {
         int a, b, c;
         cin >> a >> b >> c;
         edge_list.push_back(Edge(a, b, c));
+        // edge_list.push_back(Edge(b, a, c)); // for indirected
     }
 
     for (int i = 0; i < n; i++)
@@ -49,11 +72,7 @@ int main()
     }
     dis[0] = 0; // setting value of souce to zero
 
-    bellman_ford(n);
-    for (int i = 0; i < n; i++)
-    {
-        cout << i << " -> " << dis[i] << endl;
-    }
+    bellman_ford();
 
     return 0;
 }
