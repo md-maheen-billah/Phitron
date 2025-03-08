@@ -46,28 +46,31 @@ void bfs(int si, int sj)
 
 int main()
 {
-    cin >> n;
     int si, sj, di, dj;
-    for (int i = 0; i < n; i++)
+    while (cin >> n) // stop unting EOF
     {
-        for (int j = 0; j < n; j++)
+        for (int i = 0; i < n; i++)
         {
-            cin >> grid[i][j];
-            if (grid[i][j] == 'S')
+            for (int j = 0; j < n; j++)
             {
-                si = i;
-                sj = j;
-            }
-            if (grid[i][j] == 'E')
-            {
-                di = i;
-                dj = j;
+                cin >> grid[i][j];
+                if (grid[i][j] == 'S')
+                {
+                    si = i;
+                    sj = j;
+                }
+                if (grid[i][j] == 'E')
+                {
+                    di = i;
+                    dj = j;
+                }
             }
         }
+        memset(vis, false, sizeof(vis));
+        memset(level, -1, sizeof(level));
+        bfs(si, sj);
+        cout << level[di][dj] << endl;
     }
-    memset(vis, false, sizeof(vis));
-    memset(level, -1, sizeof(level));
-    bfs(si, sj);
-    cout << level[di][dj] << endl;
+
     return 0;
 }
