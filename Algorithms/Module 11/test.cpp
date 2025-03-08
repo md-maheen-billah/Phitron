@@ -1,56 +1,84 @@
 #include <bits/stdc++.h>
 using namespace std;
-int par[1005];
-int group_size[1005];
-
-int find(int node) // to find leader or parent
+long long dis[1005];
+int n, e;
+bool cycle;
+class Edge
 {
-    if (par[node] == -1)
-        return node;
-    int leader = find(par[node]);
-    par[node] = leader; // setting the parent to the root parent for optimization // 4->5->3->1 parent of 4 is 5, 5 is 3 and 3 is 1. Therefore root parent is 1. we therefore set the parent as 1 for 4,5,3 to 1.
-    return leader;
-}
-
-void dsu_union(int node1, int node2)
-{
-    int leader1 = find(node1);
-    int leader2 = find(node2);
-    if (group_size[leader1] >= group_size[leader2])
+public:
+    long long int a, b, c;
+    Edge(long long int a, long long int b, long long int c)
     {
-        par[leader2] = leader1;
-        group_size[leader1] += group_size[leader2];
+        this->a = a;
+        this->b = b;
+        this->c = c;
     }
-    else
+};
+
+vector<Edge> edge_list;
+
+void bellman_ford()
+{
+    for (int i = 1; i < n; i++)
     {
-        par[leader1] = leader2;
-        group_size[leader2] += group_size[leader1];
+        for (auto ed : edge_list)
+        {
+            long long int a, b, c;
+            a = ed.a;
+            b = ed.b;
+            c = ed.c;
+            if (dis[a] != LLONG_MAX && dis[a] + c < dis[b])
+                dis[b] = dis[a] + c;
+        }
+    }
+    cycle = false;
+    for (auto ed : edge_list) // running once again to check for cycle
+    {
+        long long int a, b, c;
+        a = ed.a;
+        b = ed.b;
+        c = ed.c;
+        if (dis[a] != LLONG_MAX && dis[a] + c < dis[b])
+        {
+            cycle = true;
+            break;
+        }
     }
 }
 
 int main()
 {
-    int n, e;
     cin >> n >> e;
-    memset(par, -1, sizeof(par));
-    memset(group_size, 1, sizeof(group_size));
-    bool cycle = false;
     while (e--)
     {
-        int a, b;
-        cin >> a >> b;
-        int leaderA = find(a);
-        int leaderB = find(b);
-        if (leaderA == leaderB)
-            cycle = true;
-        else
-            dsu_union(a,b);
+        long long int a, b, c;
+        cin >> a >> b >> c;
+        edge_list.push_back(Edge(a, b, c));
+        // edge_list.push_back(Edge(b, a, c)); // for indirected
     }
 
-    if(cycle)
-        cout << "Cycle Detected" << endl;
-    else 
-    cout << "No Cycle Detected" << endl;
+    for (int i = 1; i <= n; i++)
+    {
+        dis[i] = LLONG_MAX;
+    }
+    int s, t;
+    cin >> s >> t;
+    dis[s] = 0;
+    bellman_ford();
+    while (t--)
+    {
+        long long int d;
+        cin >> d;
+        if (cycle)
+        {
+            cout << "Negative Cycle Detected" << endl;
+            break;
+        }
+        else if (dis[d] != LLONG_MAX)
+            cout << dis[d] << endl;
+        else
+            cout << "Not Possible" << endl;
+    }
 
     return 0;
 }
