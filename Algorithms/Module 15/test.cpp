@@ -31,13 +31,13 @@ int main()
 {
     int n, mx_weight;
 
-    cin >> n;
+    cin >> n, mx_weight;
 
-    for (int i = 0; i < n; i++)
-        cin >> val[i];
-    for (int i = 0; i < n; i++)
-        cin >> weight[i];
-    cin >> mx_weight;
+   for (int i = 0; i < n; i++)
+   {
+       cin >> weight[i] >> val[i];
+   }
+    
 
     for (int i = 0; i <= n; i++)
         for (int j = 0; j <= mx_weight; j++)
