@@ -1,22 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int dp[1005];
-int fibonacci(int n) //using memoization
-{
-    if (n < 2)
-        return n; // if value of n is less than 2 then return the value.
-    if(dp[n]!= -1)
-        return dp[n];
-    dp[n]= fibonacci(n - 1) + fibonacci(n - 2);
-    return dp[n];
-}
-
 int main()
 {
-    memset(dp,-1,sizeof(dp));
     int n;
     cin >> n;
-    cout << fibonacci(n);
+    int fibo[n+1];
+    memset(fibo, -1, sizeof(fibo));
+    fibo[0] = 0;
+    fibo[1] = 1;
+    for (int i = 2; i <= n; i++)
+    {
+            fibo[i] = fibo[i - 1] + fibo[i - 2];
+    }
+    cout << fibo[n];
     return 0;
 }
